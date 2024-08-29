@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+<!--    Theme.AppCompat.Light.NoActionBar-->
+<!--    Theme.Material3.Light.NoActionBar-->
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Make content extend into the display cutout -->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <!-- Make the window full screen -->
+        <item name="android:windowFullscreen">true</item>
+        <!-- Hide system bars -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:screenOrientation">landscape</item>
+    </style>
+</resources>
