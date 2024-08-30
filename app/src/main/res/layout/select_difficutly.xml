@@ -81,7 +81,7 @@
         app:layout_constraintVertical_bias="0.4"/>
 
     <Button
-        android:id="@+id/history_record"
+        android:id="@+id/medium_game"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="中等"
@@ -99,7 +99,7 @@
         app:layout_constraintVertical_bias="0.6"/>
 
     <Button
-        android:id="@+id/setting"
+        android:id="@+id/difficulty_game"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="困难"
