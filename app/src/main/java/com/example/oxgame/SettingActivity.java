@@ -3,68 +3,74 @@ package com.example.oxgame;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class SettingActivity extends AppCompatActivity {
-    private static final String TAG = "SettingActivity";
-
-    private TextView tvSound;
-    private TextView tvVolume;
-    private SeekBar sbSound;
-    private SeekBar sbVolume;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_setting);
-        initViews();
+        setContentView(R.layout.setting_layout);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.layout_setting), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
-        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        //获取系统最大音量
-        int maxVolume = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        Log.d(TAG, "onCreate: maxVolume = " + maxVolume);
-        sbSound.setMax(maxVolume);
-        //获取当前音量
-        int currentVolume = am.getStreamVolume(AudioManager.STREAM_MUSIC);
-        Log.d(TAG, "onCreate: currentVolume = " + currentVolume);
-        sbSound.setProgress(currentVolume);
+        setupButtonListeners();
+        setupVolumeControl();
+    }
 
-        sbSound.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+    //返回上一个页面
+    private void setupButtonListeners() {
+        ImageView returnpre = findViewById(R.id.returnpre_image);
+        returnpre.setOnClickListener(view -> {
+            finish();
+        });
+
+        Button exitButton = findViewById(R.id.exit_game);
+        exitButton.setOnClickListener(view -> {
+            finishAffinity();
+        });
+    }
+
+    // 设置 SeekBar 控制音量
+    private void setupVolumeControl() {
+
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        SeekBar volumeSeekBar = findViewById(R.id.sb_volume);
+
+        // 获取应用内最大和当前音量
+        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+
+        volumeSeekBar.setMax(maxVolume);
+        volumeSeekBar.setProgress(currentVolume);
+
+        volumeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(fromUser){
-                    //设置系统音量
-                    am.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
-                    int currentVolume = am.getStreamVolume(AudioManager.STREAM_MUSIC);
-                    seekBar.setProgress(currentVolume);
-                }
-
+                // 仅调整应用内的音量
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+                // 用户开始拖动 SeekBar
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                // 用户停止拖动 SeekBar
             }
         });
     }
-
-
-    private void initViews() {
-        tvSound = findViewById(R.id.tv_sound);
-        tvVolume = findViewById(R.id.tv_volume);
-        sbSound = findViewById(R.id.sb_volume);
-        sbVolume = findViewById(R.id.sb_volume);
-    }
-
 }

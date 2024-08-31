@@ -60,10 +60,18 @@ public class StartMenu extends AppCompatActivity {
             startActivity(selectDifficultyIntent);
         });
 
+        //历史记录按钮
         Button historyRecordButton = findViewById(R.id.historical_record);
         historyRecordButton.setOnClickListener(view -> {
             Intent historyRecordIntent = new Intent(this, HistoryRecord.class);
             startActivity(historyRecordIntent);
+        });
+
+        //设置按钮
+        Button settingButton = findViewById(R.id.setting);
+        settingButton.setOnClickListener(view -> {
+            Intent settingIntent = new Intent(this, SettingActivity.class);
+            startActivity(settingIntent);
         });
 
         //左上角的用户登陆按钮
