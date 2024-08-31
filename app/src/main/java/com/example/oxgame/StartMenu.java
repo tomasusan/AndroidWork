@@ -60,6 +60,12 @@ public class StartMenu extends AppCompatActivity {
             startActivity(selectDifficultyIntent);
         });
 
+        Button historyRecordButton = findViewById(R.id.historical_record);
+        historyRecordButton.setOnClickListener(view -> {
+            Intent historyRecordIntent = new Intent(this, HistoryRecord.class);
+            startActivity(historyRecordIntent);
+        });
+
         //左上角的用户登陆按钮
         ImageView userImageButton = findViewById(R.id.user_image);
         userImageButton.setOnClickListener(view -> {
