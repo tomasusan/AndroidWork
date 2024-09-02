@@ -134,6 +134,7 @@ public class StartMenu extends AppCompatActivity {
 
         dialog.show();
 
+        //设置弹窗大小
         //dialog.getWindow().setLayout(1250, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         /// 获取屏幕宽度
