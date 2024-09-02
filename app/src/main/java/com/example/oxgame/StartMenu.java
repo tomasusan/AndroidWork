@@ -53,13 +53,6 @@ public class StartMenu extends AppCompatActivity {
             startActivity(selectDifficultyIntent);
         });
 
-        //联机游戏按钮
-        Button onlineGameButton = findViewById(R.id.online_game);
-        onlineGameButton.setOnClickListener(view -> {
-            Intent selectDifficultyIntent = new Intent(this, SelectDifficulty.class);
-            startActivity(selectDifficultyIntent);
-        });
-
         //历史记录按钮
         Button historyRecordButton = findViewById(R.id.historical_record);
         historyRecordButton.setOnClickListener(view -> {

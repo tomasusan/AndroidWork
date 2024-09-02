@@ -61,25 +61,7 @@
         app:layout_constraintWidth_percent="0.3"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintVertical_bias="0.2"/>
-
-    <Button
-        android:id="@+id/online_game"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="联机游戏"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        android:padding="0dp"
-        android:background="?attr/selectableItemBackground"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.3"
-        app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintVertical_bias="0.4"/>
+        app:layout_constraintVertical_bias="0.3"/>
 
     <Button
         android:id="@+id/historical_record"
@@ -97,7 +79,7 @@
         app:layout_constraintWidth_percent="0.3"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/setting"
@@ -115,6 +97,6 @@
         app:layout_constraintWidth_percent="0.15"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintVertical_bias="0.8"/>
+        app:layout_constraintVertical_bias="0.7"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
