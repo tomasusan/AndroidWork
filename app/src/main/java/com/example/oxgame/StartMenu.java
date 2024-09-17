@@ -48,6 +48,17 @@ public class StartMenu extends AppCompatActivity {
     }
 
     @Override
+    protected void onRestart()
+    {
+        super.onRestart();
+
+        Intent musicIntent = new Intent(this, MusicService.class);
+        musicIntent.putExtra("Action", 1);
+        musicIntent.putExtra("ResourceID", R.raw.nichijou);
+        startService(musicIntent);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         // 恢复音乐播放

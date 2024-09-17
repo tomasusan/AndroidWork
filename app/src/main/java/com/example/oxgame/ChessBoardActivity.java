@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.content.res.Resources;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -47,6 +48,25 @@ public class ChessBoardActivity extends AppCompatActivity implements ChessBoardV
         setupTimer();
         setupMusic(intent);
 
+
+        ImageView returnpre = findViewById(R.id.returnpre_image);
+        ImageView home = findViewById(R.id.home);
+        ImageView setting = findViewById(R.id.setting);
+
+        returnpre.setOnClickListener(view -> {
+            finish();
+        });
+
+        home.setOnClickListener(view -> {
+            Intent intent1 = new Intent(this, StartMenu.class);
+            startActivity(intent1);
+            finish();
+        });
+
+        setting.setOnClickListener(view -> {
+            Intent intent2 = new Intent(this, SettingActivity.class);
+            startActivity(intent2);
+        });
     }
 
     private void setupMusic(Intent intent) {
@@ -93,6 +113,8 @@ public class ChessBoardActivity extends AppCompatActivity implements ChessBoardV
             TextView timerText = findViewById(R.id.timer);
             Intent WinIntent = new Intent(this, WinActivity.class);
             WinIntent.putExtra("Time", timerText.getText());
+            WinIntent.putExtra("Difficulty", chessBoard.rows);
+            WinIntent.putExtra("Second",secends);
             startActivity(WinIntent);
             finish();
         }
