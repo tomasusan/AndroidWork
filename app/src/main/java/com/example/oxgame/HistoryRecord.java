@@ -31,11 +31,6 @@ public class HistoryRecord extends AppCompatActivity {
         // 初始化视图组件
         initView();
 
-//        // 示例：插入或更新分数
-//        dbHelper.updateTime("简单", 7);
-//        dbHelper.updateTime("中等", 150);
-//        dbHelper.updateTime("困难", 200);
-
         // 显示当前的分数
         displayTimes();
 
@@ -63,13 +58,13 @@ public class HistoryRecord extends AppCompatActivity {
 
                 switch (difficulty) {
                     case "简单":
-                        simpleScoreTextView.setText(String.valueOf(time));
+                        simpleScoreTextView.setText(processTimer(time));
                         break;
                     case "中等":
-                        mediumScoreTextView.setText(String.valueOf(time));
+                        mediumScoreTextView.setText(processTimer(time));
                         break;
                     case "困难":
-                        difficultyScoreTextView.setText(String.valueOf(time));
+                        difficultyScoreTextView.setText(processTimer(time));
                         break;
                 }
             } while (cursor.moveToNext());
@@ -86,5 +81,29 @@ public class HistoryRecord extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         dbHelper.close();
+    }
+
+    private String processTimer(int currentSeconds) {
+        int minute = (currentSeconds / 60) % 60;
+        int second = currentSeconds % 60;
+
+        String minuteString;
+        if (minute<10)
+        {
+            minuteString = "0" + minute;
+        }
+        else{
+            minuteString = "" + minute;
+        }
+        String secondString;
+        if (second<10)
+        {
+            secondString = "0" + second;
+        }
+        else{
+            secondString = "" + second;
+        }
+        String timeString = minuteString + ":" + secondString;
+        return timeString;
     }
 }

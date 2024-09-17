@@ -12,18 +12,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
-        android:src="@drawable/returnpre"
+        android:adjustViewBounds="true"
+        android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:background="?attr/selectableItemBackground"
-        android:adjustViewBounds="true"
+        android:scaleX=".7"
+        android:scaleY=".7"
+        android:src="@drawable/returnpre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.08"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.08" />
 
     <TextView
         android:id="@+id/history_score"
@@ -97,7 +99,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintWidth_percent="0.25"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintVertical_bias="0.4" />
 
@@ -112,7 +114,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintWidth_percent="0.25"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintVertical_bias="0.6" />
 
@@ -127,7 +129,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintWidth_percent="0.25"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintVertical_bias="0.8" />
 
