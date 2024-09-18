@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,27 +46,6 @@ public class StartMenu extends AppCompatActivity {
         Intent musicIntent = new Intent(this, MusicService.class);
         musicIntent.putExtra("Action", 0);
         startService(musicIntent);
-    }
-
-    @Override
-    protected void onRestart()
-    {
-        super.onRestart();
-
-        Intent musicIntent = new Intent(this, MusicService.class);
-        musicIntent.putExtra("Action", 1);
-        musicIntent.putExtra("ResourceID", R.raw.nichijou);
-        startService(musicIntent);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // 恢复音乐播放
-        Intent intent = new Intent(this, MusicService.class);
-        intent.putExtra("Action", 2); // Change
-        intent.putExtra("ResourceID", R.raw.nichijou);
-        startService(intent);
     }
 
     //设置开始界面的按钮监听

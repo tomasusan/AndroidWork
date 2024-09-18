@@ -20,20 +20,22 @@ public class MusicService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i("onStart", "Start Called");
-        int inputAction = intent.getIntExtra("Action", -1);
-        Log.i("onStart", "Action: " + inputAction);
-        switch (inputAction) {
-            case 0:
-                mediaPlayer.start();
-                break;
-            case 1:
-                Log.i("Music", "Now Changing");
-                int rID = intent.getIntExtra("ResourceID", -1);
-                mediaPlayer.reset();
-                mediaPlayer = MediaPlayer.create(this, rID);
-                mediaPlayer.setLooping(true);
+        if(intent != null){
+            int inputAction = intent.getIntExtra("Action", -1);
+            Log.i("onStart", "Action: " + inputAction);
+            switch (inputAction) {
+                case 0:
                     mediaPlayer.start();
-                break;
+                    break;
+                case 1:
+                    Log.i("Music", "Now Changing");
+                    int rID = intent.getIntExtra("ResourceID", -1);
+                    mediaPlayer.reset();
+                    mediaPlayer = MediaPlayer.create(this, rID);
+                    mediaPlayer.setLooping(true);
+                    mediaPlayer.start();
+                    break;
+            }
         }
 
 

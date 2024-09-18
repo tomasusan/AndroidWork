@@ -80,7 +80,7 @@ public class HistoryRecord extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        dbHelper.close();
+        //dbHelper.close();
     }
 
     private String processTimer(int currentSeconds) {

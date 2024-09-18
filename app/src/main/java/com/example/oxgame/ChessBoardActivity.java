@@ -49,6 +49,10 @@ public class ChessBoardActivity extends AppCompatActivity implements ChessBoardV
         setupMusic(intent);
 
 
+        setupImageClickListener();
+    }
+
+    private void setupImageClickListener() {
         ImageView returnpre = findViewById(R.id.returnpre_image);
         ImageView home = findViewById(R.id.home);
         ImageView setting = findViewById(R.id.setting);
@@ -59,6 +63,12 @@ public class ChessBoardActivity extends AppCompatActivity implements ChessBoardV
 
         home.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, StartMenu.class);
+
+            Intent startMusicIntent = new Intent(this, MusicService.class);
+            startMusicIntent.putExtra("Action", 1);
+            startMusicIntent.putExtra("ResourceID", R.raw.nichijou);
+            startService(startMusicIntent);
+
             startActivity(intent1);
             finish();
         });

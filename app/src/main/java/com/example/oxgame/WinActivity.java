@@ -40,6 +40,11 @@ public class WinActivity extends AppCompatActivity {
         second = intent.getIntExtra("Second", -1);
         timeView.setText(time);
 
+        Intent musicIntent = new Intent(this, MusicService.class);
+        musicIntent.putExtra("Action", 1);
+        musicIntent.putExtra("ResourceID", R.raw.qushuiliushang);
+        startService(musicIntent);
+
         switch (difficulty){
             case 4:
                 dbHelper.updateTime("简单",second);
@@ -57,7 +62,13 @@ public class WinActivity extends AppCompatActivity {
 
         home.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, StartMenu.class);
+
+            Intent startMusicIntent = new Intent(this, MusicService.class);
+            startMusicIntent.putExtra("Action", 1);
+            startMusicIntent.putExtra("ResourceID", R.raw.nichijou);
+            startService(startMusicIntent);
             startActivity(intent1);
+
             finish();
         });
 

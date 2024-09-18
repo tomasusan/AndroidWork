@@ -42,10 +42,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875"
+        app:layout_constraintVertical_bias="0.779"
         app:layout_constraintWidth_percent="0.4" />
 
     <Button
@@ -104,8 +104,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="252dp"
-        android:layout_height="211dp"
+        android:layout_width="355dp"
+        android:layout_height="313dp"
         android:scaleX="1.4"
         android:scaleY="1.4"
         app:layout_constraintBottom_toBottomOf="parent"
